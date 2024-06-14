@@ -1,11 +1,28 @@
 let score = JSON.parse(localStorage.getItem('score'));
-
+let isAutoPlay = false;
+let intervalId = '';
 if(score === null){
     score = {
         wins: 0,
         losses: 0,
         draws: 0
     };
+}
+
+function autoPlay(){
+    if(!isAutoPlay){
+        alert('The auto pilot is started.');
+        intervalId = setInterval(function(){
+        let botMove = Math.random();
+        botMove = computerSelector(botMove);
+        playGame(botMove);
+        }, 1200);
+        isAutoPlay = true;
+    } else {
+        clearInterval(intervalId);
+        isAutoPlay = false;
+        alert('The auto pilot has stopped.');
+    }
 }
 
 function resetScore(){

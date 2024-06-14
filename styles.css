@@ -89,10 +89,23 @@ body{
     font-size: 16px;
 }
 
-.reset-button{
+.reset-button, .auto-button{
     background-color: white;
     color: rgb(25, 25, 25);
     border: none;
     padding: 10px;
     border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.game-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:active{
+    opacity: 0.5;
 }
