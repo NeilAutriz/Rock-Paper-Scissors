@@ -18,25 +18,26 @@
 
     <!-- Responsible to create the cards for the game.-->
     <div class="game-stack">
-        <button class="rock-button"onclick="playGame('rock');"> 
+        <button class="rock-button"> 
             <img class="rock-image" src="images/rock.png">
         </button>
         
-        <button class="paper-button"onclick="playGame('paper');">
+        <button class="paper-button">
             <img class="paper-image" src="images/paper.png">
         </button>
 
-        <button class="scissors-button"onclick="playGame('scissors');">
+        <button class="scissors-button">
             <img class="scissors-image" src="images/scissors.png">
         </button>
     </div>
 
-    <div class="game-result">
+    <!-- Displays the result of the games-->
+    <div class="game-result">   
         <p class="matchResult"></p>
 
         <div class="game-buttons">
-            <button class="reset-button"onclick="resetScore(score);"> Reset Score </button>
-            <button class="auto-button"onclick="autoPlay();"> Auto Play </button>
+            <button class="reset-button"> Reset Score </button>
+            <button class="auto-button"> Auto Play </button>
         </div>
     </div>
 

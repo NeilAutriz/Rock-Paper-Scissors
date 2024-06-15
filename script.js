@@ -1,6 +1,24 @@
+const autoButton = document.querySelector('.auto-button').addEventListener('click', () => autoPlay());
+let scoreResetButton = document.querySelector('.reset-button').addEventListener('click', () => resetScore(score));
+const userRock = document.querySelector('.rock-button').addEventListener('click', () => playGame('rock'));
+const userPaper = document.querySelector('.paper-button').addEventListener('click', () => playGame('paper'));
+const userscissors = document.querySelector('.scissors-button').addEventListener('click', () => playGame('scissors'));
 let score = JSON.parse(localStorage.getItem('score'));
 let isAutoPlay = false;
 let intervalId = '';
+
+document.body.addEventListener('keydown', (event) => {
+    if(event.key === 'r'){
+        playGame('rock');
+    } else if(event.key === 'p'){ 
+        playGame('paper');
+    } else if (event.key === 's'){
+        playGame('scissors');
+    } else {
+        return;
+    }
+});
+
 if(score === null){
     score = {
         wins: 0,
@@ -12,7 +30,7 @@ if(score === null){
 function autoPlay(){
     if(!isAutoPlay){
         alert('The auto pilot is started.');
-        intervalId = setInterval(function(){
+        intervalId = setInterval(() => {
         let botMove = Math.random();
         botMove = computerSelector(botMove);
         playGame(botMove);
@@ -40,7 +58,6 @@ function resetScore(){
     `
 }
 
-
 function checkResult(result){
     if(result === 'You win'){
         score.wins++;
@@ -50,6 +67,7 @@ function checkResult(result){
         score.draws++;
     }
 }
+
 
 function playGame(playerMove){
     let result = '';
